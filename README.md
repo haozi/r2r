@@ -1,5 +1,6 @@
 ---
 ```sh
-  npm run dev # run dev
-  npm run debug # debug node
+sudo npm install -g devtool # it's too big
+
+npm run dev # run dev
 ```

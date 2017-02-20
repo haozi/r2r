@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "dev": "npm run watch",
+    "dev": "npm run debug | npm run watch",
     "test": "ava test/",
     "test-cov": "istanbul cover ./node_modules/mocha/bin/_mocha -- -t 50000 --recursive  -R spec test/",
     "copy": "rm -f npm-debug.log.* && rm -rf lib && cp -r src lib",
@@ -12,7 +12,7 @@
     "watch-build": "npm run build -- --watch",
     "watch": "npm run watch-build",
     "lint": "standard 'src/**/**.js' --fix",
-    "debug": "sudo devtool test/test.js --watch",
+    "debug": "sudo devtool test/express.js --watch >/dev/null 2>&1",
     "prepublish": "npm run lint && npm run build"
   },
   "author": "",
