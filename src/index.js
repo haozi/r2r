@@ -1,7 +1,7 @@
 import R2r from './R2r'
-function r2r (options) {
+function r2r (config) {
   return function (req, res, next) {
-    new R2r(options, req, res, next).run()
+    new R2r(config, req, res, next).run()
   }
 }
 

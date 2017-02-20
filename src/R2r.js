@@ -1,8 +1,8 @@
 import Base from './Base'
 export default class extends Base {
-  constructor (options, req, res, next) {
+  constructor (config, req, res, next) {
     super()
-    this.options = options
+    this.config = config
     this.req = req
     this.res = res
     this.next = next

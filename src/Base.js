@@ -5,14 +5,9 @@ import rimraf from 'rimraf'
 import mkdirp from 'mkdirp'
 import jsonuri from 'jsonuri'
 
-import { motoImport, getConfig, logger, promisify, sleep, runBash } from './util'
-const config = getConfig()
+import { motoImport, logger, promisify, sleep, runBash } from './util'
 
 export default class Base {
-  get config () {
-    return config
-  }
-
   get logger () {
     return logger
   }
