@@ -1,7 +1,6 @@
 import PATH from 'path'
 import FS from 'fs'
 import childProcess from 'child_process'
-import getConfig from './getConfig'
 import { getLanIp } from './getIp'
 import logger from 'node-lancer/logger'
 import color from 'node-lancer/color'
@@ -85,4 +84,4 @@ export function getModuleRealPath (path) {
   return null
 }
 
-export { getConfig, logger, color, getLanIp }
+export { logger, color, getLanIp }
