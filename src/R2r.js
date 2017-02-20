@@ -21,7 +21,7 @@ export default class extends Base {
   proxy (req, res) {
 
   }
-  set cache (type, k, v){
-    this.cache[type][k] = v
-  }
+  // set cache (type, k, v) {
+  //   this.cache[type][k] = v
+  // }
 }

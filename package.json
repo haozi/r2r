@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "dev": "npm run debug | npm run watch",
+    "dev": "sudo echo 'sudo' && npm run debug:connect | npm run watch",
     "test": "ava test/",
     "test-cov": "istanbul cover ./node_modules/mocha/bin/_mocha -- -t 50000 --recursive  -R spec test/",
     "copy": "rm -f npm-debug.log.* && rm -rf lib && cp -r src lib",
@@ -12,10 +12,14 @@
     "watch-build": "npm run build -- --watch",
     "watch": "npm run watch-build",
     "lint": "standard 'src/**/**.js' --fix",
-    "debug": "sudo devtool test/express.js --watch >/dev/null 2>&1",
+    "debug:connect": "sudo devtool test/connect.js --watch >/dev/null 2>&1",
     "prepublish": "npm run lint && npm run build"
   },
   "author": "",
+  "contributors": [
+    "Jerret",
+    "haozime"
+  ],
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.23.0",
@@ -23,6 +27,7 @@
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-es2016": "^6.22.0",
     "babel-preset-es2017": "^6.22.0",
+    "connect": "^3.6.0",
     "express": "^4.14.1",
     "standard": "^8.6.0"
   },
