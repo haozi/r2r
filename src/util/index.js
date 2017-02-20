@@ -8,7 +8,6 @@ import color from 'node-lancer/color'
 
 export function runBash (bash, options = {}) {
   return new Promise((resolve, reject) => {
-    console.log(bash)
     const p = childProcess.exec(bash, options, (error) => {
       if (error) {
         reject(error)
@@ -43,8 +42,7 @@ export function promisify (fn, receiver) {
 export function motoRequire (path) {
   try {
     const obj = require(path)
-    const mod = obj && obj.__esModule && obj.default ? obj.default : obj
-    return mod
+    return obj && obj.__esModule && obj.default ? obj.default : obj
   } catch (e) {
     return null
   }
@@ -72,13 +70,13 @@ export function getModuleRealPath (path) {
   // 3. 从 moto 自己的 node_modules 中找
 
   let ret
-  const pathes = [
+  const paths = [
     `${baseDir}/node_modules/moto/node_modules/${path}`,
     `${baseDir}/node_modules/${path}`,
     `${motoPath}/node_modules/${path}`
   ]
 
-  for (let path of pathes) {
+  for (let path of paths) {
     if (FS.existsSync(path)) {
       ret = PATH.resolve(path)
       return ret

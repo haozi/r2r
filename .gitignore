@@ -13,3 +13,4 @@ lib
 .idea
 .vscode
 .vscode-upload.json
+.config
