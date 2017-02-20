@@ -1,4 +1,4 @@
-import R2r from './r2r'
+import R2r from './R2r'
 function r2r (options) {
   return function (req, res, next) {
     new R2r(options, req, res, next).run()
