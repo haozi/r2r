@@ -1,7 +1,8 @@
 import R2r from './r2r'
-
-function middleWare (req, res) {
-  new R2r().run()
+function r2r (options) {
+  return function (req, res, next) {
+    new R2r(options, req, res, next).run()
+  }
 }
 
-module.exports = middleWare.default = middleWare.r2r = middleWare
+module.exports = r2r.default = r2r.r2r = r2r

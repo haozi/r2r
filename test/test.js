@@ -1,3 +1,8 @@
 'use strict'
+var app = require('express')()
 var r2r = require('../lib/index')
-console.log(r2r)
+
+app.use(r2r({
+
+}))
+app.listen(80)
