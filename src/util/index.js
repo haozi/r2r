@@ -1,5 +1,3 @@
-import PATH from 'path'
-import FS from 'fs'
 import childProcess from 'child_process'
 import { getLanIp } from './getIp'
 import logger from 'node-lancer/logger'
@@ -59,29 +57,6 @@ export function motoImport (path) {
     }
     resolve(mod)
   })
-}
-
-const motoPath = PATH.resolve(__dirname, '../..')
-const baseDir = getConfig().path.baseDir
-export function getModuleRealPath (path) {
-  // 1. 从 项目的 node_modules/moto/node_modules 中找
-  // 2. 从 项目的 node_modules/ 根目录找
-  // 3. 从 moto 自己的 node_modules 中找
-
-  let ret
-  const paths = [
-    `${baseDir}/node_modules/moto/node_modules/${path}`,
-    `${baseDir}/node_modules/${path}`,
-    `${motoPath}/node_modules/${path}`
-  ]
-
-  for (let path of paths) {
-    if (FS.existsSync(path)) {
-      ret = PATH.resolve(path)
-      return ret
-    }
-  }
-  return null
 }
 
 export { logger, color, getLanIp }
