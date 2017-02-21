@@ -16,7 +16,10 @@ export function runBash (bash, options = {}) {
     p.stdout.pipe(process.stdout)
   })
 }
-
+/**
+ * @params deplay 秒
+ * @return Promise
+ */
 export function sleep (delay) {
   return new Promise(resolve => {
     setTimeout(resolve, delay * 1000)
@@ -57,6 +60,10 @@ export function motoImport (path) {
     }
     resolve(mod)
   })
+}
+
+export function toHead (s){
+  return s.toLowerCase().replace(/\b\-?([a-z])/g, ($0, $1) => $1.toUpperCase()
 }
 
 export { logger, color, getLanIp }

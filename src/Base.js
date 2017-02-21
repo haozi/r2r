@@ -5,11 +5,36 @@ import rimraf from 'rimraf'
 import mkdirp from 'mkdirp'
 import jsonuri from 'jsonuri'
 
-import { motoImport, logger, promisify, sleep, runBash } from './util'
+import { motoImport, logger, promisify, sleep, runBash, toHead } from './util'
 
 export default class Base {
   get logger () {
     return logger
+  }
+
+  get types () {
+    let type, ret = {}
+    ['string', 'object', 'array', 'function', 'number', 'undefined', 'null'].forEach(s => {
+      type = toHead(s)
+      ret[`is${type}`] = function (n){
+        if(s === 'number' && Number.isNaN(n)){
+          return false
+        }
+        if(s === 'array' && Array.isArray){
+          return Array.isArray(n)
+        }
+        return Object.toString.call(n) === `[object ${type}]`
+      }
+    })
+
+    return Object.assign(ret, {
+      get isEmptyObject(o) {
+        for(let key in o){
+          if(key) return false
+        }
+        return true
+      }
+    })
   }
 
   get env () {
@@ -51,8 +76,8 @@ export default class Base {
    * @description 执行 shell 脚本
    * @return Promise
    */
-  runBash (bash) {
-    return runBash(bash)
+  runBash (bash, options) {
+    return runBash(bash, options)
   }
 
   /**

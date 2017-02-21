@@ -1,6 +1,6 @@
 {
   "name": "r2r",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "author": "",
   "contributors": [
-    "Jerret",
+    "Jerret321",
     "haozime"
   ],
   "license": "MIT",
@@ -34,6 +34,7 @@
   "dependencies": {
     "jsonuri": "^1.5.13",
     "lodash.merge": "^4.6.0",
-    "node-lancer": "^1.0.14"
+    "node-lancer": "^1.0.14",
+    "http-proxy": "1.16.2"
   }
 }

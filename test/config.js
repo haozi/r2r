@@ -1,4 +1,8 @@
 module.exports = {
+  server: {
+    port: 65432,
+    ip: '127.0.0.1'
+  },
   domain: [
     'news.baidu.com'
   ],
