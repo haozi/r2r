@@ -40,7 +40,7 @@ export default class Base {
   }
 
   /**
-   * @description setTimeout 的封装
+   * @description setTimeout 的封装, 单位秒
    * @return Promise
    */
   sleep () {

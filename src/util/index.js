@@ -19,7 +19,7 @@ export function runBash (bash, options = {}) {
 
 export function sleep (delay) {
   return new Promise(resolve => {
-    setTimeout(resolve, delay)
+    setTimeout(resolve, delay * 1000)
   })
 }
 
