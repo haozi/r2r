@@ -13,14 +13,16 @@ export default class Base {
   }
 
   get types () {
-    let type, ret = {}
-    ['string', 'object', 'array', 'function', 'number', 'undefined', 'null'].forEach(s => {
+    let type
+    let ret = {}
+    let baseTypes = ['string', 'object', 'array', 'function', 'number', 'undefined', 'null']
+    baseTypes.forEach(s => {
       type = toHead(s)
-      ret[`is${type}`] = function (n){
-        if(s === 'number' && Number.isNaN(n)){
+      ret[`is${type}`] = function (n) {
+        if (s === 'number' && Number.isNaN(n)) {
           return false
         }
-        if(s === 'array' && Array.isArray){
+        if (s === 'array' && Array.isArray) {
           return Array.isArray(n)
         }
         return Object.toString.call(n) === `[object ${type}]`
@@ -28,9 +30,9 @@ export default class Base {
     })
 
     return Object.assign(ret, {
-      get isEmptyObject(o) {
-        for(let key in o){
-          if(key) return false
+      isEmptyObject (o) {
+        for (let key in o) {
+          if (key) return false
         }
         return true
       }

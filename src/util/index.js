@@ -62,8 +62,8 @@ export function motoImport (path) {
   })
 }
 
-export function toHead (s){
-  return s.toLowerCase().replace(/\b\-?([a-z])/g, ($0, $1) => $1.toUpperCase()
+export function toHead (s) {
+  return s.toLowerCase().replace(/\b-?([a-z])/g, ($0, $1) => $1.toUpperCase())
 }
 
 export { logger, color, getLanIp }

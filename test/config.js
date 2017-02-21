@@ -3,17 +3,12 @@ module.exports = {
     port: 65432,
     ip: '127.0.0.1'
   },
-  domain: [
-    'news.baidu.com'
-  ],
-
-  proxyPass: [
+  // 抓取的资源
+  domains: [
     {
-      host: 'news.baidu.com',
-      protocol: 'http',
-      path: '/article/2017-02/10168295.html?from=bdwz',
-      match: /^article(.*)/,
-      local: 'http://127.0.0.1:8080'
+      domain: 'china.huanqiu.com',
+      rules: [],
+      proxyPass: 'http://127.0.0.1:8080/article'
     }
   ]
 }

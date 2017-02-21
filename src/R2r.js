@@ -1,5 +1,5 @@
 import Base from './Base'
-import proxy from './proxy'
+import proxyHttp from './proxy/http'
 const hostMark = '# moto'
 
 export default class extends Base {
@@ -18,9 +18,11 @@ export default class extends Base {
 
   // 为兼容 connect 这里不要返回 Promise
   run () {
-    const { server, proxy } = proxy({
+    const { proxy } = proxyHttp({
       config: this.config.server,
       request (req, res) {
+        res.end('hello world')
+        console.log(req.url)
         proxy.web(req, res, {
         })
       },
