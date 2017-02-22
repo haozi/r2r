@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "dev": "sudo echo 'sudo' && npm run debug:connect | npm run watch",
+    "dev": "sudo echo 'sudo' | npm run watch",
     "test": "ava test/",
     "test-cov": "istanbul cover ./node_modules/mocha/bin/_mocha -- -t 50000 --recursive  -R spec test/",
     "copy": "rm -f npm-debug.log.* && rm -rf lib && cp -r src lib",
@@ -13,6 +13,7 @@
     "watch": "npm run watch-build",
     "lint": "standard 'src/**/**.js' 'test/**/**.js' --fix",
     "debug:connect": "sudo devtool test/connect.js --watch >/dev/null 2>&1",
+    "debug:proxy": "sudo devtool test/proxy.js --watch >/dev/null 2>&1",
     "prepublish": "npm run lint && npm run build"
   },
   "author": "",

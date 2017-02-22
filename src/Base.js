@@ -16,6 +16,7 @@ export default class Base {
     let type
     let ret = {}
     let baseTypes = ['string', 'object', 'array', 'function', 'number', 'undefined', 'null']
+    const toString = Object.prototype.toString
     baseTypes.forEach(s => {
       type = toHead(s)
       ret[`is${type}`] = function (n) {
@@ -25,7 +26,7 @@ export default class Base {
         if (s === 'array' && Array.isArray) {
           return Array.isArray(n)
         }
-        return Object.toString.call(n) === `[object ${type}]`
+        return toString.call(n) === `[object ${type}]`
       }
     })
 

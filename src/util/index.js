@@ -38,12 +38,15 @@ export function promisify (fn, receiver) {
     })
   }
 }
-
+/**
+ * path 为绝对路径
+ */
 export function motoRequire (path) {
   try {
     const obj = require(path)
     return obj && obj.__esModule && obj.default ? obj.default : obj
   } catch (e) {
+    console.log(e)
     return null
   }
 }
