@@ -1,5 +1,5 @@
 import HTTP from 'http'
-import HTTPS from 'https'
+// import HTTPS from 'https'
 import URL from 'url'
 import NET from 'net'
 import Base from '../Base'
@@ -11,18 +11,16 @@ const base = new Base()
  */
 export default function (opts) {
   const { config, request, response } = opts
-  let { port = 65432, ssl } = config
+  let { port = 65432 } = config
 
   let server = HTTP.createServer()
 
   server.listen(port, '0.0.0.0', function () {
     console.log('proxy server start http://127.0.0.1:%d', port)
   })
-
   server.on('request', (req, res) => {
     base.types.isFunction(request) && request(req, res)
     base.types.isFunction(response) && response(req, res)
-
     let u = URL.parse(req.url)
     let options = {
       hostname: u.hostname,
